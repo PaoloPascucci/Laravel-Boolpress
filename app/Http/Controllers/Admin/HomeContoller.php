@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class HomeContoller extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class HomeContoller extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.index');
     }
 }
 

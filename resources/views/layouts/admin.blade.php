@@ -62,6 +62,13 @@
                         Products
                       </a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('admin.posts.index')}}">
+                        <span data-feather="shopping-cart"></span>
+                        <i class="fas fa-thumbtack"></i>
+                        Post
+                      </a>
+                    </li>
                   </ul> 
                 </div>
               </nav>

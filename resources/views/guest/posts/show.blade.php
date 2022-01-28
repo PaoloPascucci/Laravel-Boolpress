@@ -23,6 +23,15 @@
                 <span>'Uncategorized'</span>
             @endif
         </div>
+        <div class="category">
+            Tags:
+         @forelse ($post->tags as $tag)
+             <a href="{{route('tags.posts', $tag->slug)}}">{{$tag->name}}</a>
+         @empty
+         <span>'Untag'</span>
+             
+         @endforelse
+        </div>
       </div>
     <div class="content">
         <p>

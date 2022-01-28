@@ -31,7 +31,7 @@
                         <ul>
                             @foreach ($categories as $category)
                                 <li>
-                                <a href="{{route('categories.posts', $category->slug)}}">{{$Category->name}}</a>                    
+                                <a href="{{route('categories.posts', $category->slug)}}">{{$category->name}}</a>                    
                                 </li>
                             @endforeach
                         </ul>
@@ -41,7 +41,11 @@
                     <div class="card-body">
                         <h3>Tags</h3>
                         <ul>
-
+                            @foreach ($Tags as $tag)
+                                <li>
+                                <a href="{{route('tags.posts', $tag->slug)}}">{{$tag->name}}</a>                    
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -32,7 +33,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-      return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+      return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -48,12 +50,20 @@ class PostController extends Controller
             'sub_title'=> ['nullable'],
             'cover'=>['nullable'],
             'body'=>['nullable'],
-            'category_id' => ['nullable', 'exists:categories,id']
+            'category_id' => ['nullable', 'exists:categories,id'],
+         
             ]);
             
             $validated['slug'] = Str::slug($validated['title']);
             $validated['user_id'] = Auth::id();
-            Post::create($validated);
+            $post = Post::create($validated);
+
+            if($request->has('tags')){
+                $request->validate([
+                'tags' => ['nullable', 'exists:tags,id']
+            ]);
+            $post->tags()->attach($request->tags);
+            }
             return redirect()->route('admin.posts.index');
             
     }
@@ -78,8 +88,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
+        $tags = Tag::all();
         if(Auth::id() === $post->user_id) {
-            return view('admin.posts.edit', compact('post', 'categories'));
+            return view('admin.posts.edit', compact('post', 'categories', 'tags'));
         } else{
             abort(403);
         }
@@ -101,11 +112,16 @@ class PostController extends Controller
             'sub_title'=> ['nullable'],
             'cover'=>['nullable'],
             'body'=>['nullable'],
-            'category_id' => ['nullable', 'exist:categories,id']
+            
             ]);
             
             $validated['slug'] = Str::slug($validated(['title']));
-            Post::create($validated);
+            $post->update($validated);
+            if($request->has('tags')){
+                $request->validate(['tags' => ['nullable','exists:tags,id']
+            ]);
+            $post->tags()->sync($request->tags);
+            };
             return redirect()->route('admin.posts.index')->with('message','Post modificato con successo');
             
     } else {

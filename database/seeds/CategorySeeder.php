@@ -13,8 +13,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $caegories = ['Frontend', 'Backend','Fullstack', 'Laravel', 'Vue'];
-        foreach($caegories as $category){
+        $categories = ['Frontend', 'Backend','Fullstack', 'Laravel', 'Vue'];
+        foreach($categories as $category){
             $_cat = new Category();
             $_cat->name = $category;
             $_cat->slug = Str::slug($_cat->name);

@@ -21,16 +21,16 @@
     <div class="mb-3">
         <label for="image "class="form-label">Immagine</label>
         <input type="text" name="image" id="image" class="form-control" placeholder="https://" aria-describedby="imageHelper">
-        <small id="imageHelper" class="text-muted" value="{{old('image')}}>Type a image for your product</small>
+        <small id="imageHelper" class="text-muted" value="{{old('image')}}">Type a image for your product</small>
         @error('image')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
     </div>
 
     <div class="mb-3">
-        <label for="price "class="form-label">Prezzo</label>
+        <label for="price" class="form-label">Prezzo</label>
         <input type="number" step="0.01" name="price" id="price" class="form-control" placeholder="333" aria-describedby="priceHelper">
-        <small id="priceHelper" class="text-muted" value="{{old('price')}}>Type a price for your product</small>
+        <small id="priceHelper" class="text-muted" value="{{old('price')}}">Type a price for your product</small>
         @error('price')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -39,7 +39,7 @@
     <div class="mb-3">
         <label for="qty "class="form-label">Qty</label>
         <input type="text" name="qty" id="qty" class="form-control" placeholder="Lenovo Laptop" aria-describedby="qtyHelper">
-        <small id="qtyHelper" class="text-muted" value="{{old('qty')}}>Type a quantity for your product</small>
+        <small id="qtyHelper" class="text-muted" value="{{old('qty')}}">Type a quantity for your product</small>
         @error('qty')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror

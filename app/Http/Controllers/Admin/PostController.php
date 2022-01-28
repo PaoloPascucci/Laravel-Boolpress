@@ -48,10 +48,10 @@ class PostController extends Controller
             'sub_title'=> ['nullable'],
             'cover'=>['nullable'],
             'body'=>['nullable'],
-            'category_id' => ['nullable', 'exist:gategories,id']
+            'category_id' => ['nullable', 'exists:categories,id']
             ]);
             
-            $validated['slug'] = Str::slug($validated(['title']));
+            $validated['slug'] = Str::slug($validated['title']);
             $validated['user_id'] = Auth::id();
             Post::create($validated);
             return redirect()->route('admin.posts.index');

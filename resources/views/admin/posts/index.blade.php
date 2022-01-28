@@ -24,7 +24,9 @@
       <a href="{{route('admin.posts.show', $post->slug)}}" role="button"><i class="fas fa-eye fa-lg fa-fw" aria-hidden="true"></i></a>
       <a href="{{route('admin.posts.edit', $post->slug)}}" role="button"><i class="fas fa-pencil-alt fa-lg fa-fw" aria-hidden="true"></i></a>
 <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#delete_post_{{$post->slug}}">
- <a href="{{route('admin.posts.dlete', $post->slug)}}" role="button"></a>
+ <a href="{{route('admin.posts.destroy', $post->slug)}}" role="button">
+<i class="fas fa-trash"></i>
+</a>
   
 </button>
 

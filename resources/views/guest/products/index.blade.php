@@ -6,7 +6,6 @@
 <div class="container">
     <div class="row gy-2">
         @foreach($products as $product)
-
         <div class="col-md-4">
             <div class="card">
                 <img class="card-img-top" src="{{$product->image}}" alt="{{$product->name}}">
@@ -18,7 +17,6 @@
             </div>
         </div>
         @endforeach
-
     </div>
 </div>
 

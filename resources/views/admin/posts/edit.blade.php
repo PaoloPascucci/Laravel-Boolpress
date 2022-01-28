@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Edit a new Product</h1>
+<h1>Update Post</h1>
 
 @include('partials.errors')
 

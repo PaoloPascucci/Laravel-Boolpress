@@ -11,7 +11,7 @@
                     @foreach($posts as $post)
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top" src="{{$post->cover}}" alt="{{$post->title}}">
+                            <img class="card-img-top" src="{{asset('storage/'. $post->cover)}}" alt="{{$post->title}}">
                             <div class="card-body">
                                 <h4 class="card-title">{{$post->title}}</h4>
                                 <h4 class="card-title">{{$post->sub_title}}</h4>
@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <h3>Tags</h3>
                         <ul>
-                            @foreach ($Tags as $tag)
+                            @foreach ($tags as $tag)
                                 <li>
                                 <a href="{{route('tags.posts', $tag->slug)}}">{{$tag->name}}</a>                    
                                 </li>

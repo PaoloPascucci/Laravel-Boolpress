@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
 
-    <img src="{{$post->cover}}" alt="{{$post->title}}">
+    <img src="{{asset('storage/'. $post->cover)}}" alt="{{$post->title}}">
 
     @auth
     <div class="actions">

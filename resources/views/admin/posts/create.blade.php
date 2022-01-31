@@ -6,7 +6,7 @@
 
 @include('partials.errors')
 
-    <form action="{{route('admin.posts.store')}}" method="post">
+    <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="mb-3">
@@ -20,8 +20,8 @@
 
     <div class="mb-3">
         <label for="cover "class="form-label">Cover</label>
-        <input type="text" name="cover" id="cover" class="form-control @error('cover') is_invalid @enderror" placeholder="https://" aria-describedby="coverHelper">
-        <small id="coverHelper" class="text-muted" value="{{old('cover')}}">Type a cover for your product</small>
+        <input type="file" name="cover" id="cover" class="form-control @error('cover') is_invalid @enderror" placeholder="https://" aria-describedby="coverHelper" accept="images/*">
+        <small id="coverHelper" class="text-muted"  >Type a cover for your product</small>
         @error('cover')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -46,7 +46,7 @@
 </div>
 <div class="mb-3">
   <label for="tags" class="form-label">Tags</label>
-  <select multiple class="form-select" name="tags[]" id="tags">
+  <select multiple class="form-select" name="tags" id="tags">
     <option disabled>Select all tags</option>
     
     @foreach ($tags as $tag)

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="card">
-              <img src="{{$post->cover}}" class="card-img-top" alt="{{$post->title}}">
+              <img src="{{asset('storage/'. $post->cover)}}" class="card-img-top" alt="{{$post->title}}">
               <a name="shop" href="{{route('admin.posts.index')}}" role="button">back to back</a>
               <div class="card-body">
                 <h5 class="card-title">{{$post->title}}</h5>

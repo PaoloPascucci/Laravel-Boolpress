@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Auth;
+
 class ProductController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.products.index', ['products'=>Product::all()]);
+        $posts = Auth::user()->products()->orderByDesc('id')->paginate(10);
+        return view('admin.products.index', compact('products'));
     }
 
     /**

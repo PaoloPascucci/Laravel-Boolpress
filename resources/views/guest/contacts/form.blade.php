@@ -28,7 +28,7 @@
             </div>
             <div class="col">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" email="email" id="email" class="form-control" placeholder="Mario@Rossi.com" aria-describedby="emailHelper" required value="{{old('email')}}">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Mario@Rossi.com" aria-describedby="emailHelper" required value="{{old('email')}}">
                     <small id="emailHelper" class="text-muted">Type your email here</small>
             </div>
         </div>

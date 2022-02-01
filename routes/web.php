@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', 'PageController@index')->name('home');
+Route::get('/about', 'PageController@about')->name('about');
 
-Route::get('contacts', 'PageController@contacts')->name('contacts');
-Route::post('contacts', 'PageController@sendContactsForm')->name('contacts.send');
+Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
+Route::post('contacts', 'ContactController@store')->name('contacts.send');
 
 Route::resource('products', ProductController::class)->only(['index','show']);
 Route::resource('posts', PostController::class)->only(['index','show'])->parameter('post','post:slug');
@@ -39,5 +38,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
     Route::resource('posts', PostController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('tags', TagController::class);
+    Route::resource('contacts', ContactController::class)->only(['index','show','destroy']);
 });
 

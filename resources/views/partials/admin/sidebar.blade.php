@@ -36,6 +36,13 @@
                 Tags
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.contacts.index')}}">
+              <span data-feather="shopping-cart"></span>
+              <i class="fas fa-envelope"></i>
+                Messages
+            </a>
+          </li>
       </ul> 
     </div>
   </nav>

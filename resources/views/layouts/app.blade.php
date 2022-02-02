@@ -41,11 +41,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('contacts')}}">Contacts</a>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('blog')}}">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('posts.index')}}">Blog</a>
+                            <a class="nav-link" href="{{route('posts.index')}}">Posts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('products.index')}}">Shop</a>

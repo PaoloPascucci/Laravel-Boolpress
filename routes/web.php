@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\PostResource;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,14 @@ Route::get('/about', 'PageController@about')->name('about');
 
 Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
 Route::post('contacts', 'ContactController@store')->name('contacts.send');
+
+Route::get('posts/{post}', function (Post $post) {
+    return new PostResource(Post::find($post));
+});
+
+Route::get('blog', function () {
+    return view('blog');
+})->name('blog');
 
 Route::resource('products', ProductController::class)->only(['index','show']);
 Route::resource('posts', PostController::class)->only(['index','show'])->parameter('post','post:slug');

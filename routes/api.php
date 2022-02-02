@@ -23,3 +23,5 @@ Route::get('posts', function () {
     $posts = Post::with(['category','tags'])->paginate();
     return $posts;
 });
+
+Route::get('posts', 'API\PostController@index');

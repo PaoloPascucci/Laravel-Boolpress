@@ -24,4 +24,4 @@ class PostController extends Controller
     }
 }
 
-Route::get('posts', 'API\PostController@index');
+

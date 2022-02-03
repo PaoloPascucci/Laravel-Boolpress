@@ -20,7 +20,7 @@ class PostController extends Controller
         //return PostResource::collection(Post::all());
         
         # Con la risorsa e le relazioni
-        return PostResource::collection(Post::with(['category', 'tags'])->paginate());
+        return PostResource::collection(Post::with(['category', 'tags'])->paginate(7));
     }
 }
 

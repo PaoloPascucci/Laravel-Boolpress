@@ -20,8 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('posts', function () {
-    $posts = Post::with(['category','tags'])->paginate();
+    $posts = Post::with(['category','tags'])->get();
     return $posts;
 });
 
 Route::get('posts', 'API\PostController@index');
+
+Route::get('posts/{post}', 'API\PostController@show');

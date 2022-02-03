@@ -16,11 +16,11 @@ use App\Models\Post;
 |
 */
 
-Route::get('/', 'PageController@index')->name('home');
-Route::get('/about', 'PageController@about')->name('about');
+// Route::get('/', 'PageController@index')->name('home');
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any', '.*');
 
-Route::get('contacts', 'ContactController@show_contact_page')->name('contacts');
-Route::post('contacts', 'ContactController@store')->name('contacts.send');
 
 Route::get('posts/{post}', function (Post $post) {
     return new PostResource(Post::find($post));
@@ -51,3 +51,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->
     Route::resource('contacts', ContactController::class)->only(['index','show','destroy']);
 });
 
+Route::get('/', function(){
+    return view('welcome');
+});

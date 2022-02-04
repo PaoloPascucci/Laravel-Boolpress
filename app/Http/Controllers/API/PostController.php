@@ -20,7 +20,12 @@ class PostController extends Controller
         //return PostResource::collection(Post::all());
         
         # Con la risorsa e le relazioni
-        return PostResource::collection(Post::with(['category', 'tags'])->paginate(7));
+        return PostResource::collection(Post::with(['category', 'tags'])->orderByDesc('id')->paginate());
+    }
+    public function show(Post $post){
+        $thisPost = Post::where('id', $post->id)->with(['category'])->first();
+        //ddd($thisPost);
+        return new PostResource($thisPost);
     }
 }
 
